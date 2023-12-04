@@ -17,8 +17,8 @@ const findMatches = (str: string, regex: RegExp) => {
 		regex.lastIndex = match.index + 1;
 	}
 	return matches;
-
 }
+
 const part2 = (data: string[]) => {
 	const numberStrings = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 	const digitRegex = /[0-9]/g;
