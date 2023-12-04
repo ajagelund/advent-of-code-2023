@@ -35,12 +35,18 @@ const validSet = (sets: string) => {
 
     return true;
 }
+
+const powerOfMinimalSet = (sets: string): number => {
+    const reds = findMatches(sets, redRegex).map((match) => parseInt(match.split(' ')[0]));
+    const greens = findMatches(sets, greenRegex).map((match) => parseInt(match.split(' ')[0]));
+    const blues = findMatches(sets, blueRegex).map((match) => parseInt(match.split(' ')[0]));
+
+    return Math.max(...reds) * Math.max(...greens) * Math.max(...blues);
+}
+
 const part1 = (data) => {
     const numbers = data.map((line) => {
         const game = line.split(':');
-        // const sets = game[1].split(';');
-
-
 
         return validSet(game[1]) ? parseInt(game[0].split(' ')[1]) : 0;
     });
@@ -48,6 +54,19 @@ const part1 = (data) => {
     console.log(`Result >> ${result}`);
 }
 
+const part2 = (data) => {
+    const numbers = data.map((line) => {
+        const game = line.split(':');
+
+        return powerOfMinimalSet(game[1]);
+    });
+
+    const result = numbers.reduce((acc, curr) => acc + curr, 0);
+
+    console.log(`Result >> ${result}`);
+}
+
 export {
     part1,
+    part2,
 }

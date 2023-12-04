@@ -31,6 +31,10 @@ const loadFile = async (day: string, part: string, filename: string): Promise<st
 			console.log(`Day ${day} - Part 1`);
 			two.part1(data);
 		}
+		if (part === '2') {
+			console.log(`Day ${day} - Part 2`);
+			two.part2(data);
+		}
 		return;
 	}
 
